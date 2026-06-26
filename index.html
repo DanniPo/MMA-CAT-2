@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Save Our Wildlife — watch our promotional video and learn how you can help protect endangered species.">
+  <title>Save Our Wildlife | Conservation Organization</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <p class="site-tagline">Wildlife Conservation Trust</p>
+  </header>
+
+  <main id="main-content" class="main-content">
+    <article class="promo-card">
+      <h1>Save Our Wildlife</h1>
+
+      <div id="video-wrapper" class="video-wrapper">
+        <video
+          id="wildlife-video"
+          class="wildlife-video"
+          controls
+          preload="metadata"
+          width="960"
+          height="540"
+          poster=""
+          aria-describedby="video-description"
+        >
+          <source src="wildlife.mp4" type="video/mp4">
+          <p>
+            Your browser does not support HTML5 video.
+            <a href="wildlife.mp4">Download the wildlife video</a> instead.
+          </p>
+        </video>
+      </div>
+
+      <p id="video-description" class="video-description">
+        Our planet's wildlife faces unprecedented threats from habitat loss and climate change.
+        Watch this short film to see the animals we protect and discover simple ways you can
+        support conservation efforts in your community.
+      </p>
+
+      <button
+        id="video-toggle"
+        type="button"
+        class="video-toggle"
+        aria-controls="video-wrapper"
+        aria-expanded="true"
+      >
+        Hide video
+      </button>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Wildlife Conservation Trust. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const video = document.getElementById('wildlife-video');
+      const wrapper = document.getElementById('video-wrapper');
+      const toggle = document.getElementById('video-toggle');
+
+      function updateButtonLabel() {
+        const isHidden = wrapper.classList.contains('is-hidden');
+        toggle.setAttribute('aria-expanded', String(!isHidden));
+        toggle.textContent = isHidden ? 'Show and play video' : 'Hide video';
+      }
+
+      toggle.addEventListener('click', function () {
+        const isHidden = wrapper.classList.contains('is-hidden');
+
+        if (isHidden) {
+          wrapper.classList.remove('is-hidden');
+          video.play().catch(function () {
+            /* Playback may require user gesture; controls remain available. */
+          });
+        } else if (video.paused || video.ended) {
+          video.play().catch(function () {});
+        } else {
+          video.pause();
+          wrapper.classList.add('is-hidden');
+        }
+
+        updateButtonLabel();
+      });
+
+      video.addEventListener('play', updateButtonLabel);
+      video.addEventListener('pause', updateButtonLabel);
+    })();
+  </script>
+</body>
+</html>
