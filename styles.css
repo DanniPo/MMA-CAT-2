@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #f0ebe3;
+  background: #0c1222;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: #e8a838;
+  color: #0c1222;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #7ec8e3;
+}
+
+.site-header,
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.site-tagline {
+  margin: 0;
+  color: #e8a838;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+.main-content {
+  max-width: 48rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.promo-card {
+  background: #1c2640;
+  border-left: 4px solid #e8a838;
+  padding: 1.5rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+.video-wrapper {
+  margin-bottom: 1rem;
+  background: #000;
+}
+
+.video-wrapper.is-hidden {
+  display: none;
+}
+
+.wildlife-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.video-description {
+  margin: 0 0 1rem;
+  color: #b8b0a4;
+}
+
+.video-toggle {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e8a838;
+  border-radius: 2rem;
+  background: transparent;
+  color: #e8a838;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.video-toggle:hover {
+  background: #e8a838;
+  color: #0c1222;
+}
+
+.video-toggle:focus-visible {
+  outline: 3px solid #7ec8e3;
+  outline-offset: 2px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #b8b0a4;
+}
+
+@media (max-width: 600px) {
+  .video-toggle {
+    width: 100%;
+  }
+}
